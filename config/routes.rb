@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :items
   resources :users
-  root "users#index"
+  root "home#index"
 end
 
   #get 'home/index'
