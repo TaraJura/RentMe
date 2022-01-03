@@ -21,6 +21,11 @@
     <%= form.text_area :text %>
   </div>
 
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select :user_id , User.pluck(:name , :id) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
