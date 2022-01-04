@@ -23,7 +23,7 @@
         <td><%= item.user.name %></td>
         <td><%= item.rental_periods.where(returned_at: nil).count > 0 %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Rent Item', edit_item_path(item) %></td>
       </tr>
     <% end %>
   </tbody>
