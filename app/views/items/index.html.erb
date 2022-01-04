@@ -20,7 +20,7 @@
         <td><%= item.name %></td>
         <td><%= item.text %></td>
         <td><%= item.user.name %></td>
-        <td><%= item.user.name %></td>
+        <td><%= item.owner.name %></td>
         <td><%= item.rental_periods.where(returned_at: nil).count > 0 %></td>
         <td><%= item.rental_periods.last&.to %></td>
         <td><%= link_to 'Show', item %></td>
