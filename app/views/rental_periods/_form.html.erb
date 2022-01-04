@@ -1,0 +1,32 @@
+<%= form_with(model: rental_period) do |form| %>
+  <% if rental_period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rental_period.errors.count, "error") %> prohibited this rental_period from being saved:</h2>
+
+      <ul>
+        <% rental_period.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from %>
+    <%= form.date_select :from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to %>
+    <%= form.date_select :to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returned_at %>
+    <%= form.date_select :returned_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

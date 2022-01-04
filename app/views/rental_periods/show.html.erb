@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @rental_period.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @rental_period.to %>
+</p>
+
+<p>
+  <strong>Returned at:</strong>
+  <%= @rental_period.returned_at %>
+</p>
+
+<%= link_to 'Edit', edit_rental_period_path(@rental_period) %> |
+<%= link_to 'Back', rental_periods_path %>
