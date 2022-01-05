@@ -17,6 +17,7 @@ class RentalPeriodsController < ApplicationController
 
   # GET /rental_periods/1/edit
   def edit
+
   end
 
   # POST /rental_periods or /rental_periods.json

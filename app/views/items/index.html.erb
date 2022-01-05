@@ -9,7 +9,7 @@
       <th>Rented_by</th>
       <th>Owned_by</th>
       <th>Rented_till</th>
-      <th>Rented ?</th>
+      <th>Rented_?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,6 +23,7 @@
         <td><%= item.owner.name %></td>
         <td><%= item.rental_periods.last&.to %></td>
         <td><%= item.rental_periods.where(returned_at: nil).count > 0 %></td>
+        <td><%= link_to 'Return', edit_rental_period_path(item.rental_periods), :method => :post %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Rent Item', new_rental_period_path(item_id: item.id) %></td>
       </tr>
