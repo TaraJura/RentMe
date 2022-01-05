@@ -12,7 +12,7 @@ class RentalPeriodsController < ApplicationController
 
   # GET /rental_periods/new
   def new
-    @rental_period = RentalPeriod.new
+    @rental_period = RentalPeriod.new(item_id:params[:item_id])
   end
 
   # GET /rental_periods/1/edit
@@ -65,6 +65,6 @@ class RentalPeriodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rental_period_params
-      params.require(:rental_period).permit(:from, :to, :returned_at)
+      params.require(:rental_period).permit(:from, :to, :returned_at, :item_id, :user_from_id, :user_to_id)
     end
 end

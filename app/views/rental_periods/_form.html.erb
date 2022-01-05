@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+
+  <hr>
+  <h1> <%= rental_period.inspect %> </h1>
+  <hr>
+
+
+  <% form.hidden_field :item_id %>
+
   <div class="field">
     <%= form.label :from %>
     <%= form.date_select :from %>
@@ -30,3 +38,9 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
