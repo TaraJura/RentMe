@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>From:</strong>
   <%= @rental_period.from %>
@@ -15,5 +13,5 @@
   <%= @rental_period.returned_at %>
 </p>
 
-<%= link_to 'Edit', edit_rental_period_path(@rental_period) %> |
-<%= link_to 'Back', rental_periods_path %>
+<%= link_to 'Edit', edit_rental_period_path(@rental_period), class:"btn btn-dark" %> 
+<%= link_to 'Back', rental_periods_path, class:"btn btn-secondary" %>
