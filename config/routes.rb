@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :items
   resources :users
   root "home#index"
-  resources :rental_periods
+  resources :rental_periods do 
+    post :item_returned, on: :member
+  end
 end
 
   #get 'home/index'

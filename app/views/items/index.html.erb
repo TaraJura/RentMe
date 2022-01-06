@@ -21,11 +21,11 @@
         <td><%= item.text %></td>
         <td><%= item.user.name %></td>
         <td><%= item.owner.name %></td>
-        <td><%= item.rental_periods.last&.to %></td>
+        <td><%= item.current_rental_period&.to %></td>
         <td><%= item.rental_periods.where(returned_at: nil).count > 0 %></td>
-        <td><%= link_to 'Return', edit_rental_period_path(item.rental_periods), :method => :post %></td>
+        <td><%= link_to('Return', item_returned_rental_period_path(item.rental_periods.last), method: :post ) if(item.rental_periods.where(returned_at: nil).count > 0) %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Rent Item', new_rental_period_path(item_id: item.id) %></td>
+        <td><%= link_to('Rent Item', new_rental_period_path(item_id: item.id)) if(item.rental_periods.where(returned_at: nil).count > 0 == false) %></td>
       </tr>
     <% end %>
   </tbody>

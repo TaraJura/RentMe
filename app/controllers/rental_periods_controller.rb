@@ -58,6 +58,14 @@ class RentalPeriodsController < ApplicationController
     end
   end
 
+  def item_returned
+  
+  rental_period_returned = RentalPeriod.find(params[:id])
+  rental_period_returned.update!(returned_at: Time.current)
+  redirect_to items_path, notice: "Item was succesfully returned"
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rental_period

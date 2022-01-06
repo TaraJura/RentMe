@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+    @is_rented1 = is_rented
   end
 
   # GET /items/1 or /items/1.json
@@ -67,4 +68,11 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :text, :user_id, :owner_id)
     end
-end
+
+
+    
+    def is_rented
+     @item = Item.first
+     @item.rental_periods.where(returned_at: nil).count > 0
+    end
+  end
