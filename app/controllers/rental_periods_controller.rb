@@ -58,12 +58,18 @@ class RentalPeriodsController < ApplicationController
     end
   end
 
+
+
+
+  # update rental period returned_at value to now
+
   def item_returned
-  
   rental_period_returned = RentalPeriod.find(params[:id])
   rental_period_returned.update!(returned_at: Time.current)
   redirect_to items_path, notice: "Item was succesfully returned"
   end
+
+
 
 
   private
