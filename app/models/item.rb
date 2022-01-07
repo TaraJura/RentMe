@@ -9,4 +9,8 @@ class Item < ApplicationRecord
   rental_periods.where(returned_at: nil).last
   end
 
+  def rented_by_user
+    current_rental_period&.user_to
+  end
+
 end

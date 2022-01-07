@@ -18,17 +18,27 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-      <% if item.avatar.attached? %>
-        <td><image height= 45px src="<%=(url_for(item.avatar)) %>"></td> 
-      <% else  %>
-        <td><%= link_to 'Edit', item %> </td> 
-      <% end %>
+
+          <% if item.avatar.attached? %>
+
+            <td><image height= 40px src="<%=(url_for(item.avatar)) %>"></td> 
+            
+          <% else  %>
+
+            <td><%= link_to 'Add IMG', item %> </td> 
+
+          <% end %>
+
         <td><%= item.name %></td>
         <td><%= item.text %></td>
-        <td><%= item.user.name %></td>
+        <td><%= item.rented_by_user&.name %></td>
         <td><%= item.owner.name %></td>
         <td><%= item.current_rental_period&.to %></td>
-        <td><%= item.rental_periods.where(returned_at: nil).count > 0 %></td>
+          <% if(item.rental_periods.where(returned_at: nil).count > 0) %>
+            <td> Yes </td>
+          <% else %>
+            <td> No </td>
+          <% end %>
         <td><%= link_to('Return', item_returned_rental_period_path(item.rental_periods.last), method: :post ) if(item.rental_periods.where(returned_at: nil).count > 0) %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to('Rent Item', new_rental_period_path(item_id: item.id)) if(item.rental_periods.where(returned_at: nil).count > 0 == false) %></td>
