@@ -18,7 +18,11 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><image height= 35px src="<%=(url_for(item.avatar)) %>"></td> 
+      <% if item.avatar.attached? %>
+        <td><image height= 45px src="<%=(url_for(item.avatar)) %>"></td> 
+      <% else  %>
+        <td><%= link_to 'Edit', item %> </td> 
+      <% end %>
         <td><%= item.name %></td>
         <td><%= item.text %></td>
         <td><%= item.user.name %></td>
