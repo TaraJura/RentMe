@@ -14,24 +14,24 @@
   <%= form.hidden_field :item_id %>
 <br>
   <div class="field mb-3">
-    <%= form.label :from %>
-    <%= form.date_select :from %>
+    <% form.label :from %>
+    <% form.date_select :from %>
   </div>
 
   <div class="field mb-3">
-    <%= form.label :to %>
+    <%= form.label "Enter estimated rental time" %>
+    <br>
     <%= form.date_select :to %>
   </div>
-
-<div class="field mb-3 ">
-  <%= form.label :user_from %>
+<div class="field mb-3" style="visibility: hidden;">
+  <% form.label :user_from %>
       <div class="col-sm-10">
         <%= form.select :user_from_id , User.pluck(:name , :id) %>
       </div>
 </div>
 
 <div class="field mb-3 ">
-  <%= form.label :user_to %>
+  <%= form.label "Which user want to rent item ?" %>
       <div class="col-sm-10">
         <%= form.select :user_to_id , User.pluck(:name , :id) %>
       </div>
@@ -40,7 +40,7 @@
 
 <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Rent Me!"%>
   </div>
 <% end %>
 
