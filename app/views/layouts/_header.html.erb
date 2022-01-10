@@ -25,13 +25,13 @@
         </li>
       </ul>
   <% end %>
-      <form class="d-flex">
+      <form class="d-flex ">
       <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link active" %>
-        <a aria-current="page" class="nav-link active" href="<%= edit_user_registration_path %>">Edit Profile</a>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link active", style:"color: white;" %>
+        <a aria-current="page" class="nav-link active" style="color: white;" href="<%= edit_user_registration_path %>">Edit Profile</a>
       <% else %>  
-      <a aria-current="page" class="nav-link active" href="<%= new_user_registration_path %>">Sign Up</a>
-      <a aria-current="page" class="nav-link active" href="<%= new_user_session_path %>">Sign In</a>
+      <a aria-current="page" class="nav-link active" style="color: white;" href="<%= new_user_registration_path %>">Sign Up</a>
+      <a aria-current="page" class="nav-link active" style="color: white;" href="<%= new_user_session_path %>">Sign In</a>
       <% end %>
       </form>
     </div>
