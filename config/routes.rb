@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :accounts
+  devise_for :users
   resources :items
   resources :users
   root "home#index"
@@ -9,3 +9,4 @@ Rails.application.routes.draw do
 end
 
   #get 'home/index'
+    #devise_for :accounts

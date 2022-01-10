@@ -1,0 +1,29 @@
+<h1>Rental Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Returned at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rental_periods.each do |rental_period| %>
+      <tr>
+        <td><%= rental_period.from %></td>
+        <td><%= rental_period.to %></td>
+        <td><%= rental_period.returned_at %></td>
+        <td><%= link_to 'Show', rental_period %></td>
+        <td><%= link_to 'Edit', edit_rental_period_path(rental_period) %></td>
+        <td><%= link_to 'Destroy', rental_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rental Period', new_rental_period_path %>

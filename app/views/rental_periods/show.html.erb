@@ -1,0 +1,12 @@
+<p>
+  <strong>From:</strong>
+  <%= @rental_period.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @rental_period.to %>
+</p>
+
+<%= link_to 'Edit', edit_rental_period_path(@rental_period), class:"btn btn-dark" %> 
+<%= link_to 'Back', items_path, class:"btn btn-secondary" %>

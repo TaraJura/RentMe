@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">RentMe</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <% if user_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link active" href="<%= items_path %>">Items</a>
+        </li>
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link active" href="<%= users_path %>">Users</a>
+        </li>
+      </ul>
+  <% else %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link disabled" href="<%= items_path %>">Items</a>
+        </li>
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link disabled" href="<%= users_path %>">Users</a>
+        </li>
+      </ul>
+  <% end %>
+      <form class="d-flex">
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link active" %>
+        <a aria-current="page" class="nav-link active" href="<%= edit_user_registration_path %>">Edit Profile</a>
+      <% else %>  
+      <a aria-current="page" class="nav-link active" href="<%= new_user_registration_path %>">Sign Up</a>
+      <a aria-current="page" class="nav-link active" href="<%= new_user_session_path %>">Sign In</a>
+      <% end %>
+      </form>
+    </div>
+  </div>
+</nav>

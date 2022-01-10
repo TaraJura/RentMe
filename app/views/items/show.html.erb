@@ -1,0 +1,20 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @item.text %>
+</p>
+
+<% if @item.avatar.attached? %>
+<image style="height: 150px" src="<%=(url_for(@item.avatar))%>">
+<br>
+<br>
+<% end %>
+
+
+<%= link_to 'Edit', edit_item_path(@item), class:"btn btn-dark" %> 
+<%= link_to 'Back', items_path, class:"btn btn-secondary" %>
