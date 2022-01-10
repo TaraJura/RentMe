@@ -39,9 +39,9 @@
           <% else %>
             <td> No </td>
           <% end %>
-        <td><%= link_to('Return', item_returned_rental_period_path(item.rental_periods.last), method: :post ) if(item.rental_periods.where(returned_at: nil).count > 0) %></td>
+        <td><%= link_to('Return', item_returned_rental_period_path(item.rental_periods.last), method: :post ) if item.rental_period_returned_by_user %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to('Rent Item', new_rental_period_path(item_id: item.id)) if(item.rental_periods.where(returned_at: nil).count > 0 == false) %></td>
+        <td><%= link_to('Rent Item', new_rental_period_path(item_id: item.id)) if item.rental_period_created_by_user %></td>
       </tr>
     <% end %>
   </tbody>

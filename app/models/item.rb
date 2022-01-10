@@ -13,4 +13,12 @@ class Item < ApplicationRecord
     current_rental_period&.user_to
   end
 
+  def rental_period_returned_by_user
+    rental_periods.where(returned_at: nil).count > 0
+  end
+
+  def rental_period_created_by_user
+    rental_periods.where(returned_at: nil).count > 0 == false
+  end
 end
+
