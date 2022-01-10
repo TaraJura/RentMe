@@ -77,4 +77,5 @@ class ItemsController < ApplicationController
      @item = Item.first
      @item.rental_periods.where(returned_at: nil).count > 0
     end
+
   end
