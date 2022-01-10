@@ -22,7 +22,7 @@ class RentalPeriodsController < ApplicationController
 
   # POST /rental_periods or /rental_periods.json
   def create
-    @rental_period = RentalPeriod.new(rental_period_params)
+    @rental_period = current_user.rental_periods_to.new(rental_period_params)
 
     respond_to do |format|
       if @rental_period.save
