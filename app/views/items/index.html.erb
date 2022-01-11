@@ -34,7 +34,7 @@
         <td><%= item.text %></td>
         <td><%= item.rented_by_user&.name %></td>
         <td><%= item.owner.name %></td>
-        <td><%= item.current_rental_period&.to %></td>
+        <td><%= item.current_rental_period&.to&.strftime("%d. %m. %Y") %></td>
           <% if(item.rental_periods.where(returned_at: nil).count > 0) %>
             <td> Yes </td>
           <% else %>
