@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_many :rental_periods
   has_many :notes, as: :noteable
   belongs_to :user, class_name: "User", dependent: :delete
-  belongs_to :owner, class_name: "User", dependent: :delete
+  belongs_to :owner, class_name: "User", dependent: :delete 
   has_one_attached :avatar
 
   def current_rental_period 

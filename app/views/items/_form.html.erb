@@ -12,45 +12,52 @@
   <% end %>
   
 <div class="row mb-3">
-<%= form.label :name %>
+<strong><%= form.label :name %></strong>
     <div class="col-sm-10">
       <%= form.text_field :name %>
     </div>
 </div>
-<%= form.label :photo %> 
+<strong><%= form.label :photo %> </strong>
 <br>
 <%= form.file_field :avatar %> 
 <br>
 <br>
 <div class="row mb-3">
-<%= form.label :text %>
+<strong><%= form.label :text %></strong>
     <div class="col-sm-10">
       <%= form.text_area :text %>
     </div>
 </div>
 
 <div class="field mb-3" style="visibility: hidden;" >
-  <%= form.label "Renter" %>
+  <strong><%= form.label "Renter" %></strong>
       <div class="col-sm-10">
         <%= form.select :user_id , User.pluck(:name , :id) %>
       </div>
 </div>
-
+<% if current_user.id == @item.owner_id  %>
 <div class="field mb-3 ">
-  <%= form.label :owner_id %>
+  <strong><%= form.label :owner_id %></strong>
       <div class="col-sm-10">
         <%= form.select :owner_id , User.pluck(:name , :id) %>
       </div>
 </div>
+<% else %>
+
+<strong><%= form.label :owner_id %></strong>
+<p> <%= item.owner.name %> </p>
+<p>Only <strong>owner</strong> can change ownership of this item ! </p>
+<br>
+
+<% end %>
 
 <% if @item.avatar.attached? %>
-<p>Photo</p>
+
+<strong><p>Photo</p></strong>
 <image height= 100px src="<%=(url_for(@item.avatar))%>">
 <br>
 <br>
 <% end %>
-
-
 <br>
   <div class="actions">
     <%= form.submit %>
